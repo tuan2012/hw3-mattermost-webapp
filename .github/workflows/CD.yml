@@ -1,0 +1,24 @@
+name: CICD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: 'Update Server'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: SSH and deploy in server
+      uses: appleboy/ssh-action@master
+      with:
+        HOST: ${{ secrets.SSH_HOST }}
+        USERNAME: ${{ secrets.SSH_USERNAME }}
+        KEY: ${{ secrets.SSH_KEY }}
+        PORT: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~/hw3-mattermost-webapp
+          git pull origin master
+          npm run build
