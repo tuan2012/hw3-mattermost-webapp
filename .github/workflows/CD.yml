@@ -1,0 +1,36 @@
+name: CICD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.1
+    - name: Katalon Studio Github Action
+      uses: katalon-studio/katalon-studio-github-action@v2
+      with:
+          version: '7.5.5'
+          projectPath: 'katalon'
+          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Simple Test Suite Collection" -apiKey= $ --config -webui.autoUpdateDrivers=true'
+
+  deploy:
+    name: 'Update Server'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: SSH and deploy in server
+      uses: appleboy/ssh-action@master
+      with:
+        HOST: ${{ secrets.SSH_HOST }}
+        USERNAME: ${{ secrets.SSH_USERNAME }}
+        KEY: ${{ secrets.SSH_KEY }}
+        PORT: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~/hw3-mattermost-webapp
+          git pull origin main
+          npm run build
