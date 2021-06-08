@@ -20,6 +20,7 @@ jobs:
 
   deploy:
     name: 'Update Server'
+    need: [build]
     runs-on: ubuntu-latest
     
     steps:
