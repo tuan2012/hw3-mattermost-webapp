@@ -15,8 +15,8 @@ jobs:
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
           version: '7.5.5'
-          projectPath: 'katalon'
-          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Simple Test Suite Collection" -apiKey= $ --config -webui.autoUpdateDrivers=true'
+          projectPath: '\test-auto\test-auto.prj'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey="60b7a9e4-4cb4-4958-8bce-7e193a6715d2" --config -webui.autoUpdateDrivers=true'
 
   deploy:
     name: 'Update Server'
