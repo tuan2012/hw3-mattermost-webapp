@@ -16,7 +16,7 @@ jobs:
       with:
           version: '7.5.5'
           projectPath: '../../test-auto/test-auto.prj'
-          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey="60b7a9e4-4cb4-4958-8bce-7e193a6715d2" --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey=${{ secrets.API_KEY }} --config -webui.autoUpdateDrivers=true'
 
   deploy:
     name: 'Update Server'
