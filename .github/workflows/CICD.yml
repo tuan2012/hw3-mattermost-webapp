@@ -18,7 +18,7 @@ jobs:
       with:
           version: '7.5.5'
           projectPath: '${{ github.workspace }}\hw03-testing'
-          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All Test Cases Collection" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
 
   build:
     needs: [katalon-test]
@@ -31,21 +31,21 @@ jobs:
       with:
           version: '7.5.5'
           projectPath: '${{ github.workspace }}\test-auto'
-          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All" -apiKey= ${{ secrets.API_KEY }} --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All Test Cases Collection" -apiKey= ${{ secrets.API_KEY }} --config -webui.autoUpdateDrivers=true'
 
-  deploy:
-    name: 'Update Server'
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - name: SSH and deploy in server
-      uses: appleboy/ssh-action@master
-      with:
-        HOST: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USERNAME }}
-        KEY: ${{ secrets.SSH_KEY }}
-        PORT: ${{ secrets.SSH_PORT }}
-        script: |
-          cd ~/hw3-mattermost-webapp
-          git pull origin main
-          npm run build
+#   deploy:
+#     name: 'Update Server'
+#     needs: [build]
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: SSH and deploy in server
+#       uses: appleboy/ssh-action@master
+#       with:
+#         HOST: ${{ secrets.SSH_HOST }}
+#         USERNAME: ${{ secrets.SSH_USERNAME }}
+#         KEY: ${{ secrets.SSH_KEY }}
+#         PORT: ${{ secrets.SSH_PORT }}
+#         script: |
+#           cd ~/hw3-mattermost-webapp
+#           git pull origin main
+#           npm run build
