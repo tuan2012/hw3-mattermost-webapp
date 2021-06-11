@@ -6,6 +6,7 @@
    <UUID>bcc5c290-0891-46e1-a343-f62af557e5b8</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
+   <projectFileLocation>C:\Users\Tung\Desktop\hw3-mattermost-webapp\test-auto\test-auto.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
