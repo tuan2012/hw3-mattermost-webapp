@@ -30,7 +30,7 @@ jobs:
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
           version: '7.5.5'
-          projectPath: '${{ github.workspace }}\test-auto\test-auto.prj'
+          projectPath: '${{ github.workspace }}\test-auto'
           args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey="17f7f65e-9f5d-4fa0-a518-d697392c2fdf" --config -webui.autoUpdateDrivers=true'
 
   deploy:
