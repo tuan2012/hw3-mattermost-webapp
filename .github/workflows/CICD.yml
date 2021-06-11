@@ -19,6 +19,13 @@ jobs:
           projectPath: '${{ github.workspace }}\test-auto'
           
           args: '-noSplash -retry=1 -testSuiteCollectionPath="Test Suites/Run All Collection" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
+    - name: Katalon Report Uploader
+    uses: katalon-studio/report-uploader@v0.0.8
+    env:
+      PASSWORD: ac6c0337-7a5a-4648-9a85-eccf74a6d706
+      PROJECT_ID: 166846
+      TYPE: katalon
+      REPORT_PATH: test-auto
 
 #   deploy:
 #     name: 'Update Server'

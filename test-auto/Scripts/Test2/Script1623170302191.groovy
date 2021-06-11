@@ -1,4 +1,5 @@
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.model.FailureHandling.STOP_ON_FAILURE
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -22,6 +23,6 @@ WebUI.openBrowser('')
 WebUI.navigateToUrl('http://102.37.126.131:8065/')
 
 WebUI.acceptAlert()
-WebUI.verifyTextPresent("Login successfully", false)
+WebUI.verifyTextPresent("Login successfully", false) //stop CONT
 WebUI.click(findTestObject('Object Repository/Page_Mattermost/span_Sign in'))
 
