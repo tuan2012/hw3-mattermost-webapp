@@ -2,11 +2,13 @@ name: CICD
 
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  build:
+  katalon-test:
+    name: 'Katalon Test'
     runs-on: windows-latest
     steps:
     - name: Checkout
@@ -15,14 +17,26 @@ jobs:
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
           version: '7.5.5'
-          projectPath: '../../test-auto/test-auto.prj'
-          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey="60b7a9e4-4cb4-4958-8bce-7e193a6715d2" --config -webui.autoUpdateDrivers=true'
+          projectPath: '${{ github.workspace }}\hw03-testing'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All Test Cases" -testSuiteCollectionPath="Test Suites/Run All Test Cases Collection" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
+
+  build:
+    needs: [katalon-test]
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Katalon Studio Github Action
+      uses: katalon-studio/katalon-studio-github-action@v2
+      with:
+          version: '7.5.5'
+          projectPath: '${{ github.workspace }}\test-auto\test-auto.prj'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All" -apiKey="17f7f65e-9f5d-4fa0-a518-d697392c2fdf" --config -webui.autoUpdateDrivers=true'
 
   deploy:
     name: 'Update Server'
     needs: [build]
     runs-on: ubuntu-latest
-    
     steps:
     - name: SSH and deploy in server
       uses: appleboy/ssh-action@master
