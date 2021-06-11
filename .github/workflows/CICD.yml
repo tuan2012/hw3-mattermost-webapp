@@ -7,21 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  katalon-test:
-    name: 'Katalon Test'
-    runs-on: windows-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Katalon Studio Github Action
-      uses: katalon-studio/katalon-studio-github-action@v2
-      with:
-          version: '7.5.5'
-          projectPath: '${{ github.workspace }}\hw03-testing'
-          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All Test Cases Collection" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
-
   build:
-    needs: [katalon-test]
     runs-on: windows-latest
     steps:
     - name: Checkout
