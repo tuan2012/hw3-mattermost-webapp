@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: windows-latest
     steps:
     - name: Checkout
@@ -19,27 +19,20 @@ jobs:
           projectPath: '${{ github.workspace }}\test-auto'
           
           args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All Test Case" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
-#     - name: Katalon Report Uploader
-#       uses: katalon-studio/report-uploader@v0.0.8
-#       env:
-#         PASSWORD: ac6c0337-7a5a-4648-9a85-eccf74a6d706
-#         PROJECT_ID: 166846
-#         TYPE: katalon
-#         REPORT_PATH: test-auto
 
-#   deploy:
-#     name: 'Update Server'
-#     needs: [build]
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: SSH and deploy in server
-#       uses: appleboy/ssh-action@master
-#       with:
-#         HOST: ${{ secrets.SSH_HOST }}
-#         USERNAME: ${{ secrets.SSH_USERNAME }}
-#         KEY: ${{ secrets.SSH_KEY }}
-#         PORT: ${{ secrets.SSH_PORT }}
-#         script: |
-#           cd ~/hw3-mattermost-webapp
-#           git pull origin main
-#           npm run build
+  deploy:
+    name: 'Update Server'
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH and deploy in server
+      uses: appleboy/ssh-action@master
+      with:
+        HOST: ${{ secrets.SSH_HOST }}
+        USERNAME: ${{ secrets.SSH_USERNAME }}
+        KEY: ${{ secrets.SSH_KEY }}
+        PORT: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~/hw3-mattermost-webapp
+          git pull origin main
+          npm run build
