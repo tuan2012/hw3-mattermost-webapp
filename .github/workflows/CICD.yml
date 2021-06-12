@@ -7,7 +7,24 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+
+  # unit-test:
+  #   name: 'Run Unit Test'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout
+  #     uses: actions/checkout@v2
+
+  #   - name: setup nodejs
+  #     uses: actions/setup-node@v2
+  #     with:
+  #       node-version: '14'
+  #   - run: |
+  #       npm install
+  #       npm run test
+
+  katalon-test:
+    name: 'Run Katalon Test'
     runs-on: windows-latest
     steps:
     - name: Checkout
@@ -22,7 +39,7 @@ jobs:
 
   deploy:
     name: 'Update Server'
-    needs: [test]
+    needs: [katalon-test]
     runs-on: ubuntu-latest
     steps:
     - name: SSH and deploy in server
