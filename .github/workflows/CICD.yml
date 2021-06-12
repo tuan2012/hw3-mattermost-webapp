@@ -18,7 +18,7 @@ jobs:
           version: '7.5.5'
           projectPath: '${{ github.workspace }}\test-auto'
           
-          args: '-noSplash -retry=0 -testSuiteCollectionPath="Test Suites/Run All Collection" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All Test Case" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
 #     - name: Katalon Report Uploader
 #       uses: katalon-studio/report-uploader@v0.0.8
 #       env:
