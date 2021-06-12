@@ -33,7 +33,7 @@ jobs:
       uses: katalon-studio/katalon-studio-github-action@v2
       with:
           version: '7.5.5'
-          projectPath: '${{ github.workspace }}\mattermost-testing'
+          projectPath: '${{ github.workspace }}\test-auto'
           
           args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run all test cases" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
 
