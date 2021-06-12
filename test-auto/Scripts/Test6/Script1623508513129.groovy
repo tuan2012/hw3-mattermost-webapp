@@ -26,7 +26,7 @@ WebUI.setText(findTestObject('Object Repository/Page_Mattermost/input_All team c
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Mattermost/input_All team communication in one place, _a3edc6'), 
     'o9fpc7BE0MNHVe6oLewzxA==')
 
-WebUI.click(findTestObject('Object Repository/Page_Mattermost/button_Sign in'))
+WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Mattermost/button_Sign'), 0)
 
 WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/div_4Add a channel description'))
 

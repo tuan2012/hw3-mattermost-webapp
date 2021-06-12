@@ -28,7 +28,8 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Mattermost/input_A
 
 WebUI.click(findTestObject('Object Repository/Page_Mattermost/button_Sign in'))
 
-WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/i_More unreads_icon icon-chevron-down'))
+WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/i_More unreads_icon icon-chevron-down'), 
+    0)
 
-WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/div_CHANNELS'))
+WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan/CHANNELS'))
 

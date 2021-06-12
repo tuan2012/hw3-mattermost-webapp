@@ -28,5 +28,6 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Mattermost/input_A
 
 WebUI.click(findTestObject('Object Repository/Page_Mattermost/button_Sign in'))
 
-WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/span_Add a channel description_icon icon--standard'))
+WebUI.verifyElementPresent(findTestObject('Object Repository/Page_Town Square -Mattermost/span_Add a channel description_icon icon--standard'), 
+    0)
 

@@ -30,5 +30,6 @@ WebUI.click(findTestObject('Object Repository/Page_Mattermost/button_Sign in'))
 
 WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/svg'))
 
-WebUI.click(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/i_Saved Posts_icon icon-close'))
+WebUI.waitForElementPresent(findTestObject('Object Repository/Page_Town Square - Tuan Mattermost/i_Saved Posts_icon'), 
+    0)
 
