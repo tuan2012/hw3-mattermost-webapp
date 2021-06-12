@@ -35,7 +35,7 @@ jobs:
           version: '7.5.5'
           projectPath: '${{ github.workspace }}\test-auto'
           
-          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run all test cases" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
+          args: '-noSplash -retry=0 -testSuitePath="Test Suites/Run All Test Case" -apiKey= ${{ secrets.API_KEY }} -browserType="Chrome" --config -webui.autoUpdateDrivers=true'
 
   deploy:
     name: 'Update Server'
