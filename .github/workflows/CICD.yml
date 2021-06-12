@@ -22,7 +22,7 @@ jobs:
 
   deploy:
     name: 'Update Server'
-    needs: [build]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
     - name: SSH and deploy in server
