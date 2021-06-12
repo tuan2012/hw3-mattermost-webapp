@@ -23,4 +23,16 @@
       <isRun>true</isRun>
       <testCaseId>Test Cases/Test2</testCaseId>
    </testCaseLink>
+   <testCaseLink>
+      <guid>e86ee549-0edd-4efb-a35f-b8cca777f3f1</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Test3</testCaseId>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>9b82ec21-b796-4c0e-a468-c1948c2034ac</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Test4</testCaseId>
+   </testCaseLink>
 </TestSuiteEntity>
