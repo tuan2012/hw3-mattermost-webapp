@@ -40,7 +40,7 @@ export default class SiteNameAndDescription extends React.PureComponent<Props> {
                 >
                     {description}
                 </h4>
-                <h4>HW3 - Xin chào thầy</h4>
+                <h4>HW3 - NHÓM 01 XIN CHAO THAY</h4>
             </React.Fragment>
         );
     }
