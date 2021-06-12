@@ -17,3 +17,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.callTestCase(findTestCase('Common Test Cases/Login'), [('Username') : findTestData('Internal Data for Login').getValue(
+            1, 1), ('Password') : findTestData('Internal Data for Login').getValue(2, 1)], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.verifyElementPresent(findTestObject('Page_Mattermost/label_Please enter your email or username'), 0)
+
+WebUI.closeBrowser()
+

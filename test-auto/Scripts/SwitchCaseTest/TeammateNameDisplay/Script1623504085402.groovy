@@ -17,3 +17,34 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.openBrowser('')
+
+WebUI.callTestCase(findTestCase('Test Cases/Common Test Cases/Login'), [('username') : username, ('password') : password], 
+    FailureHandling.STOP_ON_FAILURE)	
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/span'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/button_Account Settings'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/button_Display'))
+
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/div_Teammate Name DisplayEditShow username'))
+String show = show
+switch(show) {
+	case 'username':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/label_Show username'))
+		break;
+	case 'firstlastname':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/label_Show first and last name'))
+		break;
+	case 'nickname':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/label_Show nickname if one exists, otherwise show first and last name'))
+		break;
+	default:
+		WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/label_Show username'))
+		break;
+}
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/TeamMateName/button_Save'))
+

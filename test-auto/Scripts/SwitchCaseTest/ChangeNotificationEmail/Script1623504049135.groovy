@@ -17,3 +17,31 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.openBrowser('')
+
+WebUI.callTestCase(findTestCase('Test Cases/Common Test Cases/Login'), [('username') : username, ('password') : password], 
+    FailureHandling.STOP_ON_FAILURE)	
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/span'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/button_Account Settings'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/button_Notifications'))
+
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/div_Email NotificationsEditImmediately'))
+String notify = notify
+switch(notify) {
+	case 'yes':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/label_Immediately'))
+		break;
+	case 'no':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/label_Never'))
+		break;
+	default:
+		WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/label_Immediately'))
+		break;
+}
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/NotifyEmail/Page_span_Town Square - TEAM NAME Mattermost/span_Save'))
+

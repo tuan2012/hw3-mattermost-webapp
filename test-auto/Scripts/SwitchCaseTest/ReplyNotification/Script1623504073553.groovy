@@ -17,3 +17,34 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.callTestCase(findTestCase('Common Test Cases/Login'), [('Username') : 'nttuan', ('Password') : '12345678zZ@'], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/svg'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/button_Account Settings'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/button_Notifications'))
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/span_Edit'))
+
+switch (replyNotificationType) {
+	case 'inreply':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/label_Trigger notifications on messages in _a77cbe'))
+		break
+		
+	case 'inthread':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/label_Trigger notifications on messages in _3c6410'))
+		break
+		
+	case 'donot':
+		WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/label_Do not trigger notifications on messa_d7ce81'))
+		break
+		
+	default:
+		WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/label_Trigger notifications on messages in _a77cbe'))
+}
+
+WebUI.click(findTestObject('Object Repository/SwitchCase/RelyNotification/Page_span_Town Square - TEAM NAME Mattermost/button_Save'))
+
+WebUI.closeBrowser()
+
